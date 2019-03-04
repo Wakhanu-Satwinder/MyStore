@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_user"
+        android:layout_width="123dp"
+        android:layout_height="115dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/user"
+        tools:layout_editor_absoluteY="2dp" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="165dp">
+
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:inputType="textPersonName" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginTop="227dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:id="@+id/et_reg_email"
+            android:inputType="textEmailAddress"
+            android:textColor="#000000"/>
+    </android.support.design.widget.TextInputLayout>
+
+   <android.support.design.widget.TextInputLayout
+       android:layout_marginTop="295dp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+       <EditText
+           android:layout_width="240dp"
+           android:layout_height="wrap_content"
+           android:hint="Password"
+           android:id="@+id/et_reg_password"
+           android:inputType="textPassword"
+           />
+   </android.support.design.widget.TextInputLayout>
+
+   <android.support.design.widget.TextInputLayout
+       android:layout_marginTop="363dp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_gravity="center_vertical"
+       >
+
+       <EditText
+           android:id="@+id/et_regno"
+           android:layout_width="240dp"
+           android:layout_height="wrap_content"
+           android:hint="RegNo"
+           android:inputType="textPostalAddress" />
+   </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginTop="431dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <EditText
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:hint="Phone Number"
+        android:id="@+id/et_pnumber"
+        android:inputType="textPhonetic"
+        />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="260dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="17dp"
+        android:background="@drawable/button_rectangle_pink"
+        android:text="REGISTER"
+        android:textColor="#ffffff" />
+
+
+</RelativeLayout>
