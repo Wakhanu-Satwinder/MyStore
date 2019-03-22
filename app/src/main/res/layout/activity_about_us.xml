@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:ignore="ContentDescription"
-    tools:context=".AboutUs">
+    tools:ignore="ContentDescription">
 
 
     <ImageView
@@ -16,25 +15,7 @@
         android:layout_gravity="center"
         app:srcCompat="@drawable/apartt2" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="About Us"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="132dp"
-        android:layout_marginTop="59dp"
-        android:layout_gravity="center"/>
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MyStore is a mobile application"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="187dp"
-        android:layout_marginTop="100dp"
-        android:layout_gravity="center"/>
 
 
 </LinearLayout>

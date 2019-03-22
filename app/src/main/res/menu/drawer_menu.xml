@@ -18,9 +18,9 @@
             android:icon="@drawable/ic_executive_24dp"
             android:title="Executive" />
         <item
-            android:id="@+id/nav_rooms"
-            android:icon="@drawable/ic_rooms_24dp"
-            android:title="Rooms" />
+            android:id="@+id/nav_login"
+            android:icon="@drawable/ic_key"
+            android:title="Login" />
     </group>
     <item android:title="More">
         <menu>
