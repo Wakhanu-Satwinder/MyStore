@@ -2,9 +2,10 @@ package com.gadaffi.mystore;
 
 public class Constants {
 
-        public static final String BASE_URL = "http:// 192.168.137.105/";
+        public static final String BASE_URL = "http://192.168.43.34/";
         public static final String REGISTER_OPERATION = "register";
         public static final String LOGIN_OPERATION = "login";
+        public static final String BOOK_OPERATION = "book";
         public static final String CHANGE_PASSWORD_OPERATION = "chgPass";
 
         public static final String SUCCESS = "success";
@@ -20,6 +21,7 @@ public class Constants {
         public static final String PRICE = "price";
         public static final String IMAGE= "image";
         public static final String ROOMNO = "roomno";
+        public static final String ROOMID = "roomid";
 
 
 

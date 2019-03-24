@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.gadaffi.mystore.Constants;
 import com.gadaffi.mystore.Models.Building;
 import com.gadaffi.mystore.R;
@@ -61,20 +62,18 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.ViewHo
         holder.plotno.setText(buildings_list.get(position).getPlotno());
       //  holder.btn.set
 
-        //Initialize ImageView
-        //ImageView imageView = (ImageView)findViewById(R.id.thumbnail);
+
 
         //Loading image from below url into imageView
-        //Glide.with(context).load("http://192.168.43.34/mistore/uploaded_images/").into();
 
-       /* if(buildings_list.get(position).getBimage() != null && buildings_list.get(position).getBimage().length()>0)
+
+        if(buildings_list.get(position).getBimage() != null && buildings_list.get(position).getBimage().length()>0)
         {
-            Picasso.get().load("http://192.168.43.34/mistore/uploaded_images/"+buildings_list.get(position).getBimage()).
-                    placeholder(R.drawable.apart3).into(holder.image);
+            Glide.with(context).load("http://192.168.43.34/mistore/upload_images/"+buildings_list.get(position).getBimage()).into(holder.image);
         }else {
 
-            Picasso.get().load(R.drawable.apart3).into(holder.image);
-        }*/
+            Glide.with(context).load(R.drawable.apart3).into(holder.image);
+        }
 
      holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,7 +136,7 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.ViewHo
             location = itemView.findViewById(R.id.location);
             plotno = itemView.findViewById(R.id.plotno);
             nofrooms = itemView.findViewById(R.id.nofrooms);
-            image = itemView.findViewById(R.id.image);
+            image = itemView.findViewById(R.id.thumbnail);
             parentLayout = itemView.findViewById(R.id.parent_layout);
 
 

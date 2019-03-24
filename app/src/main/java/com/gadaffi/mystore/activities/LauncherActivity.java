@@ -18,7 +18,7 @@ public class  LauncherActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        pref = getSharedPreferences("childcare",MODE_PRIVATE);
+        pref = getSharedPreferences("mistore",MODE_PRIVATE);
         initFragment();
     }
 

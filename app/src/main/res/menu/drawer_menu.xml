@@ -18,9 +18,9 @@
             android:icon="@drawable/ic_executive_24dp"
             android:title="Executive" />
         <item
-            android:id="@+id/nav_login"
+            android:id="@+id/nav_mybookings"
             android:icon="@drawable/ic_key"
-            android:title="Login" />
+            android:title="My Bookings" />
     </group>
     <item android:title="More">
         <menu>

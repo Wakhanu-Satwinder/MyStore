@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.gadaffi.mystore.Constants;
 import com.gadaffi.mystore.Models.Room;
 import com.gadaffi.mystore.R;
@@ -57,31 +58,14 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> im
         holder.price.setText(room_list.get(position).getPrice());
 
 
-//        if(room_list.get(position).getImg() != null && room_list.get(position).getImg().length()>0)
-//        {
-//            Picasso.get().load(BASE_URL+"/Uploads/"+updates_list.get(position).getImage()).
-//                    placeholder(R.drawable.user_login).into(holder.image);
-//        }else {
-//
-//            Picasso.get().load(R.drawable.user_login).into(holder.image);
-//        }
+        if(room_list.get(position).getImg() != null && room_list.get(position).getImg().length()>0)
+        {
+            Glide.with(context).load("http://192.168.43.34/mistore/upload_images/"+room_list.get(position).getImg()).into(holder.image);
+        }else {
 
-//        holder.share.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                Intent intent = new Intent(Intent.ACTION_SEND);
-//                intent.putExtra(Intent.EXTRA_SUBJECT, "Shared from ChildCareKenya. (www.chidcarekenya.com). Please Help");
-//                intent.putExtra(Intent.EXTRA_TEXT, "Shared from ChildCareKenya App. (www.childcarekenya.com) " +"\n"+
-//                        updates_list.get(position).getTitle() + "\n" +
-//                        "Please Help"+"  "+ updates_list.get(position).getChildname()+". " +"\n"+ updates_list.get(position).
-//                        getDescription());
-//
-//                intent.setType("text/plain");
-//                context.startActivity(Intent.createChooser(intent, "Share Via"));
-//
-//            }
-//        });
+            Glide.with(context).load(R.drawable.apart3).into(holder.image);
+        }
+
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,7 +77,8 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> im
                         thisRoom.getRoomno(),
                         thisRoom.getSpaces(),
                         thisRoom.getPrice(),
-                        thisRoom.getImg()
+                        thisRoom.getImg(),
+                        thisRoom.getId(),
                 };
 
                 openRoomDetail(room);
@@ -116,6 +101,7 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> im
         editor.putString(Constants.SPACES,data[2]);
         editor.putString(Constants.PRICE,data[3]);
         editor.putString(Constants.IMAGE,data[4]);
+        editor.putString(Constants.ROOMID,data[5]);
         editor.apply();
         Intent intent = new Intent(context,RoomActivity.class);
         context.startActivity(intent);

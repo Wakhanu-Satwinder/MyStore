@@ -15,8 +15,8 @@
 
             <ImageView
                 android:id="@+id/thumbnail"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
                 android:background="@drawable/loading_shape" />
 
             <LinearLayout
@@ -29,7 +29,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Room no:" />
+                    android:text="Room no:"
+                    android:textColor="@color/colorPrimary"/>
 
                 <TextView
                     android:id="@+id/roomno"
@@ -41,7 +42,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Price per space:" />
+                    android:text="Price per space:"
+                    android:textColor="@color/colorPrimary"/>
 
                 <TextView
                     android:id="@+id/price"
@@ -52,7 +54,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Number of Spaces:" />
+                    android:text="Number of Spaces:"
+                    android:textColor="@color/colorPrimary"/>
 
                 <TextView
                     android:id="@+id/nofspaces"
@@ -65,6 +68,14 @@
                     android:text="Book"
                     android:background="@color/colorPrimary"
                     android:layout_height="wrap_content" />
+                <ProgressBar
+                    style="@style/Base.Widget.AppCompat.ProgressBar"
+                    android:id="@+id/progress"
+                    android:visibility="invisible"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="true" />
 
 
 

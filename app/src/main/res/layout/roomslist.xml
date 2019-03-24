@@ -37,7 +37,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Room no:" />
+                    android:text="Room no:"
+                    android:textColor="@color/colorPrimary"/>
 
                 <TextView
                     android:id="@+id/roomno"
@@ -49,7 +50,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Price per space:" />
+                    android:text="Price per space:"
+                    android:textColor="@color/colorPrimary"/>
 
                 <TextView
                     android:id="@+id/price"

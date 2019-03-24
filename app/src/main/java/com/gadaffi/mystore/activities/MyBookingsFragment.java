@@ -1,10 +1,11 @@
 package com.gadaffi.mystore.activities;
 
-import android.support.v4.app.Fragment;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -13,11 +14,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
-import com.gadaffi.mystore.Models.Building;
 import com.gadaffi.mystore.Constants;
 import com.gadaffi.mystore.R;
-import com.gadaffi.mystore.adapters.BuildingAdapter;
-import com.gadaffi.mystore.api.RetrofitInterface;
+import com.gadaffi.mystore.adapters.MyBookingsAdapter;
+import com.gadaffi.mystore.api.Bookings;
+import com.gadaffi.mystore.api.MyBookingsInterface;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,40 +29,42 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static android.content.Context.MODE_PRIVATE;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class BookFragment extends Fragment {
 
+public class MyBookingsFragment extends Fragment {
 
     private RecyclerView recyclerView;
 
+    //formelly bookAppointmentAdapter
 
-
-    private BuildingAdapter buildingAdapter;
+    private MyBookingsAdapter bookingsAdapter;
     private ProgressBar progress;
+    SharedPreferences pref;
 
-
-    private List<Building> buildingList;
+    //Updates is the model in my case i use Updates
+    private List<Bookings> bookings;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_book, container, false);
+        return inflater.inflate(R.layout.fragment_my_bookings, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        buildingList = new ArrayList<>();
+        bookings = new ArrayList<>();
         //id of recyclerView in updates fragment
-        recyclerView = view.findViewById(R.id.updates_recycler);
+        recyclerView = view.findViewById(R.id.bookings_recycler);
         progress = view.findViewById(R.id.progress);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        buildingAdapter = new BuildingAdapter(getActivity(), buildingList);
-        recyclerView.setAdapter(buildingAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        bookingsAdapter = new MyBookingsAdapter(getContext(), bookings);
+        recyclerView.setAdapter(bookingsAdapter);
+        pref = getContext().getSharedPreferences("mistore",MODE_PRIVATE);
+        String studentid = pref.getString(Constants.UNIQUE_ID,"");
+
         //
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -69,24 +72,24 @@ public class BookFragment extends Fragment {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        RetrofitInterface service = retrofit.create(RetrofitInterface.class);
+        MyBookingsInterface service = retrofit.create(MyBookingsInterface.class);
+//input value
 
-
-        Call<List<Building>> call = service.getBuildings();
+        Call<List<Bookings>> call = service.getBookings(studentid);
         //
         progress.setVisibility(View.VISIBLE);
 
-        call.enqueue(new Callback<List<Building>>() {
+        call.enqueue(new Callback<List<Bookings>>() {
             @Override
-            public void onResponse(Call<List<Building>> call, Response<List<Building>> response) {
+            public void onResponse(Call<List<Bookings>> call, Response<List<Bookings>> response) {
                 progress.setVisibility(View.INVISIBLE);
-                buildingList = response.body();
-             buildingAdapter.setBuilding_list(buildingList);
+               bookings = response.body();
+               bookingsAdapter.setBookings_list(bookings);
 
             }
 
             @Override
-            public void onFailure(Call<List<Building>> call, Throwable t) {
+            public void onFailure(Call<List<Bookings>> call, Throwable t) {
 
                 progress.setVisibility(View.INVISIBLE);
                 Log.d(Constants.TAG, "failed");
@@ -95,6 +98,5 @@ public class BookFragment extends Fragment {
             }
         });
     }
-//protected void onBuldingslistClick(ListView 1,View v,int position,long id)
-
 }
+

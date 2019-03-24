@@ -1,11 +1,11 @@
 package com.gadaffi.mystore.activities;
 
 
-import android.app.Fragment;
-import android.app.FragmentTransaction;
+import android.support.v4.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -70,6 +70,9 @@ public class MainActivity extends AppCompatActivity implements
             case R.id.nav_executive:
                 fragment = new ExecutiveFragment();
                 break;
+            case R.id.nav_mybookings:
+                fragment = new MyBookingsFragment();
+                break;
             case R.id.nav_about_us:
                 fragment = new AboutUsFragment();
                 break;
@@ -89,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements
 
         //replacing the fragment
         if (fragment != null) {
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.fragment_frame, fragment);
             ft.commit();
         }

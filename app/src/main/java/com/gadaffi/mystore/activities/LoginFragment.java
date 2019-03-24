@@ -49,7 +49,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
 
         private void initViews(View view){
 
-            pref = getActivity().getSharedPreferences("childcare",MODE_PRIVATE);
+            pref = getActivity().getSharedPreferences("mistore",MODE_PRIVATE);
 
             btn_login = (AppCompatButton)view.findViewById(R.id.btn_login);
             tv_register = (TextView)view.findViewById(R.id.tv_register);

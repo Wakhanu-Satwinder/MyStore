@@ -1,7 +1,7 @@
 package com.gadaffi.mystore.activities;
 
 import android.app.AlertDialog;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -22,6 +22,8 @@ import com.gadaffi.mystore.ServerRequest;
 import com.gadaffi.mystore.ServerResponse;
 import com.gadaffi.mystore.Models.Student;
 import com.gadaffi.mystore.api.RequestInterface;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -54,7 +56,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
-        pref = getActivity().getSharedPreferences("childcare",MODE_PRIVATE);
+        pref = getActivity().getSharedPreferences("mistore",MODE_PRIVATE);
         tv_name.setText("Welcome : " + pref.getString(Constants.NAME, ""));
         tv_email.setText(pref.getString(Constants.EMAIL, ""));
 
@@ -144,10 +146,13 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     }
 
     private void changePasswordProcess(String email, String old_password, String new_password) {
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .create();
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
         RequestInterface requestInterface = retrofit.create(RequestInterface.class);

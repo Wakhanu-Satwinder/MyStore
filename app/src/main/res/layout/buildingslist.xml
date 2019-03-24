@@ -20,8 +20,8 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal">
 <ImageView
-android:layout_width="100dp"
-android:layout_height="100dp"
+android:layout_width="150dp"
+android:layout_height="150dp"
 android:background="@drawable/loading_shape"
 android:id="@+id/thumbnail"/>
 
@@ -35,6 +35,7 @@ android:layout_margin="8dp">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Building Name:"
+        android:textColor="@color/colorPrimary"
         android:textStyle="bold"
         android:textSize="18sp"/>
 
@@ -49,7 +50,8 @@ android:layout_margin="8dp">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Plot no:"/>
+        android:text="Plot no:"
+        android:textColor="@color/colorPrimary"/>
 <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -59,7 +61,8 @@ android:layout_margin="8dp">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="No. of Rooms:"/>
+        android:text="No. of Rooms:"
+        android:textColor="@color/colorPrimary"/>
 <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -70,7 +73,8 @@ android:layout_margin="8dp">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Location:"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:textColor="@color/colorPrimary"/>
 <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"

@@ -1,5 +1,6 @@
 package com.gadaffi.mystore;
 
+import com.gadaffi.mystore.Models.BookRoom;
 import com.gadaffi.mystore.Models.Building;
 import com.gadaffi.mystore.Models.Room;
 import com.gadaffi.mystore.Models.Student;
@@ -10,9 +11,13 @@ public class ServerRequest {
         Student student;
         Building building;
         Room room;
+        BookRoom bookRoom;
 
         public void setOperation(String operation) {
             this.operation = operation;
+        }
+        public void setBookRoom(BookRoom bookRoom){
+            this.bookRoom = bookRoom;
         }
 
         public void setStudent(Student student) {
